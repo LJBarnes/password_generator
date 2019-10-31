@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html pwdLength="en-us">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Password Generator</title>
+
+</head>
+
+<body>
+    <!-- html/bootstrap classes go here to make password generator box/generate btn/copy btn -->
+    <script>
+
+        //define variables for lowerCase, upperCase, numbers, symbols, finalPassword
+        var lowerCase = "abcdefghijklmnopqrstuvwxyz";
+        var upperCase = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
+        var numbers = "1234567890";
+        var symbols = " !#$%&'()*+,-./:;<=>?@[]^_`{|}~ ";
+
+        //define password conditions (object?)--this is what needs to be true for the password/validate user entry
+        // var pwdCond = {
+            // pwdLength from lengthPrompt???
+        //     pwdLength: true,
+        //     pwdLower: true,
+        //     pwdUpper: true,
+        //     pwdSpec: true,
+        //     pwdNum: true,
+        // }
+
+        //make a function(s) to generate password--include prompt for how many characters, confirms for other aspects
+        //function to get password length--user input/prompt
+        function password() {
+
+            var randoString = 0;
+            var pwdLength = parseInt(prompt("How many characters would you like your password to have? (8-128)"));
+            
+            
+            
+            
+
+            if (pwdLength > 7 && pwdLength < 129) {
+                    alert("You would like " + pwdLength + " numbers in your password");
+            }  else if (isNAN(pwdLength)) {
+                    alert("That's not a number.");
+                    password();
+            }   else {
+                    alert("You have entered an invalid length");
+                    password();
+            }
+
+            var specChar = confirm("Would you like your password to contain special characters?");
+            
+            if (confirm(specChar) === true) {
+                var randoSymbol = symbols[Math.floor(Math.random() * symbols.length)];
+                console.log(randoSymbol);
+            } else {
+                    alert("You do not want special characters in your password.");
+                    console.log("No symbols.");
+                }
+            
+            var upper = confirm("Would you like your password to contain uppercase letters?");
+            
+            if (confirm(upper) === true) {
+                var randoUpper = upperCase[Math.floor(Math.random() * upperCase.length)];
+                console.log(randoUpper);
+            } else {
+                alert("You do not want lowercase characters in yoru password.");
+                console.log("No uppercase.");
+            }
+
+            var lower = confirm("Would you like your password to contain lowercase letters?");
+
+            if (confirm(lower) === true) {
+                 var randoLower = lowerCase[Math.floor(Math.random() * lowerCase.length)];
+                 console.log(randoLower);
+            } else {
+                alert("You do not want uppercase characters in yoru password.");
+                console.log("No lowercase.");
+            }
+
+            var numbers = confirm("Would you like your password to contain numbers?");
+
+            if (confirm(numbers) === true) {
+                 var randoNumber = numbers[Math.floor(Math.random() * numbers.length)];
+                 console.log(randoNumber);
+            } else {
+                alert("You do not want numbers characters in your password.");
+                console.log("No numbers.");
+            }    
+
+        }
+        password();
+
+            // // save for later when you start if statements
+            
+                
+            
+            // }
+
+        
+
+        //function to get Random symbol
+        // function generateRandomSymbol() {
+        //     var randomSym = symbols[Math.floor(math.random() * pwdLength)];
+        // }
+
+    //add all info from functions together to create final password??? password = randomSym + randomNum + randomUpper + randomLower
+    </script>
+</body>
+
+</html>
