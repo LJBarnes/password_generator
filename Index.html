@@ -30,8 +30,8 @@
         //make a function(s) to generate password--include prompt for how many characters, confirms for other aspects
         //function to get password length--user input/prompt
         function password() {
-
-            var randoString = 0;
+            // randoString may not be needed, depending on how for loop has to be set up.
+            var randoString = "";
             var pwdLength = parseInt(prompt("How many characters would you like your password to have? (8-128)"));
             
             
@@ -40,7 +40,7 @@
 
             if (pwdLength > 7 && pwdLength < 129) {
                     alert("You would like " + pwdLength + " numbers in your password");
-            }  else if (isNAN(pwdLength)) {
+            }  else if (Number.isNaN(pwdLength)) {
                     alert("That's not a number.");
                     password();
             }   else {
@@ -50,9 +50,10 @@
 
             var specChar = confirm("Would you like your password to contain special characters?");
             
-            if (confirm(specChar) === true) {
+            if (specChar === true) {
                 var randoSymbol = symbols[Math.floor(Math.random() * symbols.length)];
                 console.log(randoSymbol);
+                randoString += randoSymbol;
             } else {
                     alert("You do not want special characters in your password.");
                     console.log("No symbols.");
@@ -60,9 +61,9 @@
             
             var upper = confirm("Would you like your password to contain uppercase letters?");
             
-            if (confirm(upper) === true) {
+            if (upper === true) {
                 var randoUpper = upperCase[Math.floor(Math.random() * upperCase.length)];
-                console.log(randoUpper);
+                randoString += randoUpper;
             } else {
                 alert("You do not want lowercase characters in yoru password.");
                 console.log("No uppercase.");
@@ -70,19 +71,22 @@
 
             var lower = confirm("Would you like your password to contain lowercase letters?");
 
-            if (confirm(lower) === true) {
+            if (lower === true) {
                  var randoLower = lowerCase[Math.floor(Math.random() * lowerCase.length)];
                  console.log(randoLower);
+                 randoString += randoLower;
             } else {
                 alert("You do not want uppercase characters in yoru password.");
                 console.log("No lowercase.");
+                
             }
 
-            var numbers = confirm("Would you like your password to contain numbers?");
+            var numbersTrue = confirm("Would you like your password to contain numbers?");
 
-            if (confirm(numbers) === true) {
+            if (numbersTrue === true) {
                  var randoNumber = numbers[Math.floor(Math.random() * numbers.length)];
                  console.log(randoNumber);
+                 randoString += randoNumber;
             } else {
                 alert("You do not want numbers characters in your password.");
                 console.log("No numbers.");
