@@ -1,14 +1,41 @@
 <!DOCTYPE html>
 <html pwdLength="en-us">
 
-<head>
-    <meta charset="UTF-8">
-    <title>Password Generator</title>
-
-</head>
-
-<body>
-    <!-- html/bootstrap classes go here to make password generator box/generate btn/copy btn -->
+    <head>
+        <meta charset="UTF-8">
+        <title>title</title>
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+        <link rel="stylesheet" href="style.css" type="text/css">
+    </head>
+      
+      <body>
+        <div class="row">
+          <div class="col-sm-12">
+            <div class="wrapper">
+              <div class="header text-center mx-auto text-muted ">
+                <h1>Password Generator</h1>
+              </div>
+              <div class="box card-body mx-auto text-center">
+      
+                  <h2 class="card-title">Generate Password</h2>
+      
+                    <div class="borders">
+      
+                      <div class="form-group">
+      
+                        <textarea class="textBox container text-center text-muted" id="passwordText">Secure Password</textarea>
+                      </div>
+                      </div>
+                    <div class="buttons">
+                      <a href="#" class="btn btn-danger mr-5 mt-2 mb-5">Generate Password</a>
+                      <a href="#" class="btn btn-secondary ml-5 mt-2 mb-5">Copy To Clipboard</a>
+      
+      
+                    </div>
+              </div>
+            </div>
+          </div>
+    
     <script>
 
         //define variables for lowerCase, upperCase, numbers, symbols, finalPassword
