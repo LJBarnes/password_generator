@@ -60,7 +60,7 @@
             // randoString may not be needed, depending on how for loop has to be set up.
             var randoString = "";
             var pwdLength = parseInt(prompt("How many characters would you like your password to have? (8-128)"));
-            
+            var pickedCharacters = "";
             
             
             
@@ -78,45 +78,38 @@
             var specChar = confirm("Would you like your password to contain special characters?");
             
             if (specChar === true) {
-                var randoSymbol = symbols[Math.floor(Math.random() * symbols.length)];
-                console.log(randoSymbol);
-                randoString += randoSymbol;
+                pickedCharacters += symbols;
+                console.log(pickedCharacters);
             } else {
-                    alert("You do not want special characters in your password.");
-                    console.log("No symbols.");
+                     console.log("No symbols.");
                 }
             
             var upper = confirm("Would you like your password to contain uppercase letters?");
             
             if (upper === true) {
-                var randoUpper = upperCase[Math.floor(Math.random() * upperCase.length)];
-                randoString += randoUpper;
+                pickedCharacters += upperCase;
+                console.log(pickedCharacters);
             } else {
-                alert("You do not want lowercase characters in yoru password.");
                 console.log("No uppercase.");
             }
 
             var lower = confirm("Would you like your password to contain lowercase letters?");
 
             if (lower === true) {
-                 var randoLower = lowerCase[Math.floor(Math.random() * lowerCase.length)];
-                 console.log(randoLower);
-                 randoString += randoLower;
+              pickedCharacters += lowerCase;
+                console.log(pickedCharacters);
             } else {
-                alert("You do not want uppercase characters in yoru password.");
-                console.log("No lowercase.");
+               console.log("No lowercase.");
                 
             }
 
             var numbersTrue = confirm("Would you like your password to contain numbers?");
 
             if (numbersTrue === true) {
-                 var randoNumber = numbers[Math.floor(Math.random() * numbers.length)];
-                 console.log(randoNumber);
-                 randoString += randoNumber;
+                pickedCharacters += numbers;
+                console.log(pickedCharacters);
             } else {
-                alert("You do not want numbers characters in your password.");
-                console.log("No numbers.");
+              console.log("No numbers.");
             }    
 
         }
