@@ -1,134 +1,149 @@
 <!DOCTYPE html>
 <html pwdLength="en-us">
 
-    <head>
-        <meta charset="UTF-8">
-        <title>title</title>
-        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-        <link rel="stylesheet" href="style.css" type="text/css">
-    </head>
-      
-      <body>
-        <div class="row">
-          <div class="col-sm-12">
-            <div class="wrapper">
-              <div class="header text-center mx-auto text-muted ">
-                <h1>Password Generator</h1>
-              </div>
-              <div class="box card-body mx-auto text-center">
-      
-                  <h2 class="card-title">Generate Password</h2>
-      
-                    <div class="borders">
-      
-                      <div class="form-group">
-      
-                        <textarea class="textBox container text-center text-muted" id="passwordText">Secure Password</textarea>
-                      </div>
-                      </div>
-                    <div class="buttons">
-                      <a href="#" class="btn btn-danger mr-5 mt-2 mb-5">Generate Password</a>
-                      <a href="#" class="btn btn-secondary ml-5 mt-2 mb-5">Copy To Clipboard</a>
-      
-      
-                    </div>
-              </div>
+<head>
+  <meta charset="UTF-8">
+  <title>title</title>
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+    integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+  <link rel="stylesheet" href="style.css" type="text/css">
+</head>
+
+<body>
+  <div class="row">
+    <div class="col-sm-12">
+      <div class="wrapper">
+        <div class="header text-center mx-auto text-muted ">
+          <h1>Password Generator</h1>
+        </div>
+        <div class="box card-body mx-auto text-center">
+
+          <h2 class="card-title">Generate Password</h2>
+
+          <div class="borders">
+
+            <div class="form-group">
+
+              <textarea class="textBox container text-center text-muted" id="passwordText">Secure Password</textarea>
             </div>
           </div>
-    
+          <div class="buttons">
+            <button onclick="clickToGenerate()" class="btn btn-danger mr-5 mt-2 mb-5" id="genBtn">Generate Password</a>
+              <button onclick="myFunction()" class="btn btn-secondary ml-5 mt-2 mb-5" id="copyBtn">Copy To
+                Clipboard</button>
+
+
+          </div>
+        </div>
+      </div>
+    </div>
+
     <script>
 
-        //define variables for lowerCase, upperCase, numbers, symbols, finalPassword
-        var lowerCase = "abcdefghijklmnopqrstuvwxyz";
-        var upperCase = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
-        var numbers = "1234567890";
-        var symbols = " !#$%&'()*+,-./:;<=>?@[]^_`{|}~ ";
+      //define variables for lowerCase, upperCase, numbers, symbols, finalPassword
+      var lowerCase = "abcdefghijklmnopqrstuvwxyz";
+      var upperCase = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
+      var numbers = "1234567890";
+      var symbols = " !#$%&'()*+,-./:;<=>?@[]^_`{|}~ ";
 
-        //define password conditions (object?)--this is what needs to be true for the password/validate user entry
-        // var pwdCond = {
-            // pwdLength from lengthPrompt???
-        //     pwdLength: true,
-        //     pwdLower: true,
-        //     pwdUpper: true,
-        //     pwdSpec: true,
-        //     pwdNum: true,
-        // }
+      //define password conditions (object?)--this is what needs to be true for the password/validate user entry
+      // var pwdCond = {
+      // pwdLength from lengthPrompt???
+      //     pwdLength: true,
+      //     pwdLower: true,
+      //     pwdUpper: true,
+      //     pwdSpec: true,
+      //     pwdNum: true,
+      // }
 
-        //make a function(s) to generate password--include prompt for how many characters, confirms for other aspects
-        //function to get password length--user input/prompt
-        function password() {
-            // randoString may not be needed, depending on how for loop has to be set up.
-            var randoString = "";
-            var pwdLength = parseInt(prompt("How many characters would you like your password to have? (8-128)"));
-            var pickedCharacters = "";
-            
-            
-            
+      
+      
+      function password() {
+        
+        var pwdLength = parseInt(prompt("How many characters would you like your password to have? (8-128)"));
+        var pickedCharacters = "";
+        var randoPassword = "";
 
-            if (pwdLength > 7 && pwdLength < 129) {
-                    alert("You would like " + pwdLength + " numbers in your password");
-            }  else if (Number.isNaN(pwdLength)) {
-                    alert("That's not a number.");
-                    password();
-            }   else {
-                    alert("You have entered an invalid length");
-                    password();
-            }
 
-            var specChar = confirm("Would you like your password to contain special characters?");
-            
-            if (specChar === true) {
-                pickedCharacters += symbols;
-                console.log(pickedCharacters);
-            } else {
-                     console.log("No symbols.");
-                }
-            
-            var upper = confirm("Would you like your password to contain uppercase letters?");
-            
-            if (upper === true) {
-                pickedCharacters += upperCase;
-                console.log(pickedCharacters);
-            } else {
-                console.log("No uppercase.");
-            }
 
-            var lower = confirm("Would you like your password to contain lowercase letters?");
 
-            if (lower === true) {
-              pickedCharacters += lowerCase;
-                console.log(pickedCharacters);
-            } else {
-               console.log("No lowercase.");
-                
-            }
+        if (pwdLength > 7 && pwdLength < 129) {
+          alert("You would like " + pwdLength + " numbers in your password");
+        } else if (Number.isNaN(pwdLength)) {
+          alert("That's not a number.");
+          password();
+        } else {
+          alert("You have entered an invalid length");
+          password();
+        }
 
-            var numbersTrue = confirm("Would you like your password to contain numbers?");
+        var specChar = confirm("Would you like your password to contain special characters?");
 
-            if (numbersTrue === true) {
-                pickedCharacters += numbers;
-                console.log(pickedCharacters);
-            } else {
-              console.log("No numbers.");
-            }    
+        if (specChar === true) {
+          pickedCharacters += symbols;
+        } else {
+          console.log("No symbols.");
+        }
+
+        var upper = confirm("Would you like your password to contain uppercase letters?");
+
+        if (upper === true) {
+          pickedCharacters += upperCase;
+        } else {
+          console.log("No uppercase.");
+        }
+
+        var lower = confirm("Would you like your password to contain lowercase letters?");
+
+        if (lower === true) {
+          pickedCharacters += lowerCase;
+        } else {
+          console.log("No lowercase.");
 
         }
-        password();
 
-            // // save for later when you start if statements
-            
-                
-            
-            // }
+        var numbersTrue = confirm("Would you like your password to contain numbers?");
 
-        
+        if (numbersTrue === true) {
+          pickedCharacters += numbers;
+          console.log(pickedCharacters);
+        } else {
+          console.log("No numbers.");
+        }
 
-        //function to get Random symbol
-        // function generateRandomSymbol() {
-        //     var randomSym = symbols[Math.floor(math.random() * pwdLength)];
-        // }
+        for (var i = 0; i < pwdLength; i++) {
+          var randomCharacters = pickedCharacters[Math.floor(Math.random() * pickedCharacters.length)];
+          randoPassword += randomCharacters;
+          //  !!!this part is being weird. Want it to just display/log the final picked characters as the password...!!!
+          console.log(randoPassword);
+        }
+      
+          //Generate Button 
+          // !!! put this inside the password() or outside of? Also not sure if value is set correctly.
+        function clickToGenerate() {
+          document.getElementById("myTextarea").value = randoPassword;
+        }
 
-    //add all info from functions together to create final password??? password = randomSym + randomNum + randomUpper + randomLower
+        // copy to clipboard button:
+        function myFunction() {
+          /* Get the text field */
+          var copyText = document.getElementById("copyBtn");
+
+          /* Select the text field */
+          copyText.select();
+          copyText.setSelectionRange(0, 99999); /*For mobile devices*/
+
+          /* Copy the text inside the text field */
+          document.execCommand("copy");
+
+          /* Alert the copied text */
+          alert("Copied the text: " + copyText.value);
+        }
+
+      }
+      password();
+
+
     </script>
 </body>
 
