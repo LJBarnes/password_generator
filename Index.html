@@ -46,28 +46,12 @@
       var numbers = "1234567890";
       var symbols = " !#$%&'()*+,-./:;<=>?@[]^_`{|}~ ";
       var randoPassword = "";
-
-      //define password conditions (object?)--this is what needs to be true for the password/validate user entry
-      // var pwdCond = {
-      // pwdLength from lengthPrompt???
-      //     pwdLength: true,
-      //     pwdLower: true,
-      //     pwdUpper: true,
-      //     pwdSpec: true,
-      //     pwdNum: true,
-      // }
-
-      
-      
+ 
       function password() {
         
         var pwdLength = parseInt(prompt("How many characters would you like your password to have? (8-128)"));
         var pickedCharacters = "";
         
-
-
-
-
         if (pwdLength > 7 && pwdLength < 129) {
           alert("You would like " + pwdLength + " numbers in your password");
         } else if (Number.isNaN(pwdLength)) {
@@ -100,7 +84,6 @@
           pickedCharacters += lowerCase;
         } else {
           console.log("No lowercase.");
-
         }
 
         var numbersTrue = confirm("Would you like your password to contain numbers?");
@@ -121,12 +104,11 @@
           var randomCharacters = pickedCharacters[Math.floor(Math.random() * pickedCharacters.length)];
           randoPassword += randomCharacters;
           console.log(randoPassword);
-
         }
+
         // displays password in text area
         document.getElementById("passwordText").innerHTML = randoPassword;
-    
-      }
+        }
       
        function myFunction() {
           /* Get the text field */
