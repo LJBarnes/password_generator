@@ -112,22 +112,25 @@
           console.log("No numbers.");
         }
 
-        for (var i = 0; i < pwdLength; i++) {
+        if (numbersTrue === false && lower === false && upper === false && specChar === false){
+          alert("Please pick at least one kind of character for your password.");
+          password();
+        }
+
+         for (var i = 0; i < pwdLength; i++) {
           var randomCharacters = pickedCharacters[Math.floor(Math.random() * pickedCharacters.length)];
           randoPassword += randomCharacters;
-          //  !!!this part is being weird. Want it to just display/log the final picked characters as the password...!!!
           console.log(randoPassword);
+
         }
+        // displays password in text area
         document.getElementById("passwordText").innerHTML = randoPassword;
     
       }
-      // password();
-
-       // copy to clipboard button:
+      
        function myFunction() {
           /* Get the text field */
-          //var copyText = document.getElementById("copyBtn");
-          var copyText = document.getElementById("passwordText");
+           var copyText = document.getElementById("passwordText");
 
           /* Select the text field */
           copyText.select();
