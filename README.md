@@ -10,3 +10,5 @@ The user is then prompted to confirm if they would like symbols, uppercase lette
 
 The resulting random string is the final password. This password is then printed to the text area on the index page and can be copied to the clipboard by pushing the "copy to clipboard" button. This was achieved by assigning functions to be run when the buttons are clicked. 
 
+# Demo
+[Link to Deployed Application](https://ljbarnes.github.io/Homework3/Index.html)
